@@ -162,7 +162,19 @@ local function addInventoryItem(source, itemName, count, metadata)
         return false
     end
 
-    return exports.ox_inventory:AddItem(char:GetData('SID'), itemName, count or 1, metadata or {}, 1)
+    local sid = char:GetData('SID')
+    local amount = count or 1
+    local itemMetadata = metadata or {}
+
+    if exports.ox_inventory:AddItem(sid, itemName, amount, itemMetadata, 1) then
+        return true
+    end
+
+    if exports.ox_inventory:AddItem(source, itemName, amount, itemMetadata, 0) then
+        return true
+    end
+
+    return false
 end
 
 local function getItemLabel(itemName)

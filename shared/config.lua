@@ -26,7 +26,7 @@ Config.Text = {
 }
 
 Config.Package = {
-    item = 'pachetfurat',
+    item = 'stolenpackage',
     models = {
         `ch_prop_ch_bag_01a`,
         `xm3_prop_xm3_backpack_01a`,
